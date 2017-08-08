@@ -5,11 +5,6 @@
 [![Dependencies Status][dependencyci-badge]][dependencyci]
 [![Make a pull request][prs-badge]][prs]
 [![Apache 2 License][license-badge]][license]
-[![Donate][donate-badge]][donate]
-
-[![Watch on GitHub][github-watch-badge]][github-watch]
-[![Star on GitHub][github-star-badge]][github-star]
-[![Tweet][twitter-badge]][twitter]
 
 # Introduction
 
@@ -18,7 +13,7 @@ Bootstrap and package your project with Angular 4(+) and Electron (Typescript + 
 Currently runs with:
 
 - Angular v4.1.3
-- Angular-CLI v1.0.0
+- Angular-CLI v1.1.2
 - Electron v1.6.10
 - Electron Packager v8.6.0
 
