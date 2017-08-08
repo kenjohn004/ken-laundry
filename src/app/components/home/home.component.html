@@ -1,0 +1,141 @@
+<div fxFlex fxLayout="column" class="home-page">
+  <ngl-tabs [(selected)]="selectedTab" [type]="type">
+    <template ngl-tab nglTabId="laundry" heading="KEN LAUNDRY">
+      <div class="slds-form slds-form_compound">
+        <fieldset class="slds-form-element">
+          <div class="slds-form-element__group">
+            <div class="slds-form-element__row">
+              <div class="slds-form-element slds-size_1-of-2">
+                <label class="slds-form-element__label" for="input-01">Tên khách hàng</label>
+                <input type="text" [(ngModel)]="cust.name" class="slds-input" required>
+              </div>
+              <div class="slds-form-element slds-size_1-of-2">
+                <label class="slds-form-element__label" for="input-02">Số điện thoại</label>
+                <input type="text" [(ngModel)]="cust.tel" class="slds-input">
+              </div>
+            </div>
+            <div class="slds-form-element__row">
+              <div class="slds-form-element slds-size_1-of-1">
+                <label class="slds-form-element__label" for="input-03">Địa chỉ</label>
+                <input type="text" [(ngModel)]="cust.address" class="slds-input">
+              </div>
+            </div>
+            <div class="slds-form-element__row">
+              <div class="slds-form-element slds-size_1-of-2">
+                <label class="slds-form-element__label" for="input-01">Dịch vụ</label>
+                <div class="slds-form-element__row">                  
+                  <ngl-picklist [data]="services" [(nglPick)]="cust.service"
+                    [(open)]="PicklistOpen">
+                    <span class="slds-truncate">{{pickLabel}}</span>
+                    <template nglPicklistItem let-item>{{item}}</template>
+                  </ngl-picklist>
+
+                  <button type="button" nglButtonIcon style="margin-left: .5rem;" (click)="open()">
+                    <ngl-icon icon="settings"></ngl-icon>
+                  </button>
+                </div>
+              </div>
+              <div class="slds-form-element slds-size_1-of-2">
+                <div class="slds-form-element__row">
+                  <div class="slds-size_1-of-3">
+                    <label class="slds-form-element__label" for="input-01">Số lượng</label>
+                    <select nglFormControl class="slds-select" [(ngModel)]="cust.quantity">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="slds-size_2-of-3" style="padding-left: .5rem;">
+                    <label class="slds-form-element__label" for="input-01">Thành tiền</label>
+                    <input type="text" [(ngModel)]="cust.amount" class="slds-input">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form-element__row">
+                <button type="button" nglButton="brand" (click)="update()">Cập Nhật</button>
+            </div>
+          </div>
+        </fieldset>
+
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+          <thead>
+            <tr class="slds-text-title_caps">
+              <th scope="col">
+                <div class="slds-truncate" title="Tên khách hàng">
+                  <input type="text" placeholder="Tên khách hàng" [(ngModel)]="search.name" class="slds-input">
+                </div>
+              </th>
+              <th scope="col">
+                <div class="slds-truncate" title="Điện thoại">
+                  <input type="text" placeholder="Điện thoại" [(ngModel)]="search.tel" class="slds-input">
+                </div>
+              </th>
+              <th scope="col">
+                <div class="slds-truncate" title="Địa chỉ">
+                  <input type="text" placeholder="Địa chỉ" [(ngModel)]="search.address" class="slds-input">
+                </div>
+              </th>
+              <th scope="col">
+                <div class="slds-truncate" title="Dịch vụ">
+                  <input type="text" placeholder="Dịch vụ" [(ngModel)]="search.service" class="slds-input">
+                </div>
+              </th>
+              <th scope="col">
+                <div class="slds-truncate" title="Số lượng">
+                  <input type="text" placeholder="Số lượng" [(ngModel)]="search.quantity" class="slds-input">
+                </div>
+              </th>
+              <th scope="col">
+                <div class="slds-truncate" title="Thành tiền">
+                  <input type="text" placeholder="Thành tiền" [(ngModel)]="search.amount" class="slds-input">
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of customers">
+              <th scope="row" data-label="Tên khách hàng">
+                <div class="slds-truncate" title="Tên khách hàng">{{customer.name}}</div>
+              </th>
+              <th scope="row" data-label="Tên khách hàng">
+                <div class="slds-truncate" title="Tên khách hàng">{{customer.tel}}</div>
+              </th>
+              <th scope="row" data-label="Tên khách hàng">
+                <div class="slds-truncate" title="Tên khách hàng">{{customer.address}}</div>
+              </th>
+              <th scope="row" data-label="Tên khách hàng">
+                <div class="slds-truncate" title="Tên khách hàng">{{customer.service}}</div>
+              </th>
+              <th scope="row" data-label="Tên khách hàng">
+                <div class="slds-truncate" title="Tên khách hàng">{{customer.quantity}}</div>
+              </th>
+              <th scope="row" data-label="Tên khách hàng">
+                <div class="slds-truncate" title="Tên khách hàng">{{customer.amount}}</div>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </template>
+    <template ngl-tab nglTabId="shop" heading="KEN SHOP">
+
+    </template>
+  </ngl-tabs>
+</div>
+
+<ngl-modal [(open)]="opened">
+  <div body>
+    <p>Sit nulla est ex deserunt exercitation anim occaecat. Tempor cupidatat consequat elit dolor adipisicing.</p>
+    <p>Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit officia.</p>
+    <p>Labore esse esse cupidatat amet velit id elit consequat minim ullamco mollit enim excepteur ea.</p>
+  </div>
+  <template ngl-modal-footer>
+    <button class="slds-button slds-button--neutral" (click)="cancel()">Cancel</button>
+    <button class="slds-button slds-button--brand" (click)="save()">Save</button>
+  </template>
+</ngl-modal>
+
+
