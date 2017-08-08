@@ -28,7 +28,7 @@ With this sample, you can :
 Clone this repository locally :
 
 ``` bash
-git clone https://github.com/tsdragon0404/angular-electron.git
+git clone https://github.com/tsdragon0404/ken-laundry.git
 ```
 
 Install dependencies with npm :
